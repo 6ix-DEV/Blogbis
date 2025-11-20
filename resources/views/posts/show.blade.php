@@ -26,7 +26,7 @@
                             </div>
                             <div class="flex space-x-4">
                                 
-                                    <i class="far fa-comment"></i> <span class="ml-1">{{ $post->comments}}</span>
+                                    <i class="far fa-comment"></i> <span class="ml-1"></span>
                                 </button>
                                 <button class="text-gray-500 hover:text-primary transition-colors">
                                     <i class="fas fa-share"></i>
@@ -80,9 +80,9 @@
                             <!-- Formulaire d'ajout de commentaire -->
                             <!-- Afficher seulement si l'utilisateur est connecté -->
                             @auth
-                            <form class="mt-8" action="{{ route('posts.show',$post->id)}}" method="GET">
+                            <form class="mt-8" action="{{ route('comments.store',$post)}}" method="POST">
                                 @csrf   
-                                @method('STORE')
+                                @method('POST')
                                 <h4 class="text-lg font-medium text-secondary mb-4">Ajouter un commentaire</h4>
                                 <div class="mb-4">
                                     <label for="comment-content" class="block text-gray-700 mb-2 font-medium">Votre commentaire</label>

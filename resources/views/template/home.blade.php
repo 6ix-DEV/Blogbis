@@ -16,12 +16,12 @@
                     <i class="fas fa-pen mr-2"></i> Commencer à écrire
                 </a>
             @else
-                <a href="{{ route('register') }}" class="bg-tertiary text-primary font-bold px-6 py-3 rounded-lg hover:bg-white transition-colors shadow-lg">
-                    <i class="fas fa-user-plus mr-2"></i> Créer un compte
+                <a href="{{ route('posts.create') }}" class="bg-tertiary text-primary font-bold px-6 py-3 rounded-lg hover:bg-white transition-colors shadow-lg">
+                    <i class="fas fa-user-plus mr-2"></i> Créer un Article
                 </a>
             @endauth
             <a href="{{ route('posts.index') }}" class="bg-white text-secondary font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-lg">
-                <i class="fas fa-book-open mr-2"></i> Découvrir
+                <i class="fas fa-book-open mr-2"></i> Tous les Articles
             </a>
         </div>
     </div>

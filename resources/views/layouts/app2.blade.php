@@ -67,9 +67,9 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center space-x-2 mb-4 md:mb-0">
                     <div class="w-10 h-10 rounded-full bg-tertiary flex items-center justify-center">
-                        <span class="text-primary font-bold text-xl">t</span>
+                        <span class="text-primary font-bold text-xl"></span>
                     </div>
-                    <h1 class="text-2xl font-bold">Trio<span class="text-tertiary">Blog</span></h1>
+                    <h1 class="text-2xl font-bold">FGA - <span class="text-tertiary">Blog</span></h1>
                 </div>
                 
                 <nav class="flex flex-wrap justify-center gap-4 md:gap-8">
@@ -116,9 +116,9 @@
                 <div class="md:col-span-2">
                     <div class="flex items-center space-x-2 mb-4">
                         <div class="w-10 h-10 rounded-full bg-tertiary flex items-center justify-center">
-                            <span class="text-primary font-bold text-xl">N</span>
+                            <span class="text-primary font-bold text-xl"></span>
                         </div>
-                        <h2 class="text-2xl font-bold">Nexus<span class="text-tertiary">Blog</span></h2>
+                        <h2 class="text-2xl font-bold">FGA - <span class="text-tertiary">Blog</span></h2>
                     </div>
                     <p class="text-gray-300 mb-4 max-w-md">
                         Une plateforme moderne pour partager vos idées, découvrir de nouveaux contenus et connecter avec une communauté de passionnés.
@@ -163,7 +163,7 @@
     </footer>
 
     <!-- Scripts JavaScript communs à toutes les pages -->
-    <script>
+    {{-- <script>
         // Barre de progression de lecture
         function updateProgressBar() {
             const winHeight = window.innerHeight;
@@ -204,6 +204,6 @@
     </script>
     
     <!-- Section pour les scripts spécifiques à certaines pages -->
-    @yield('scripts')
+    @yield('scripts') --}}
 </body>
 </html>

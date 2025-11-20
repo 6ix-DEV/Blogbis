@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\comment;
+use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,19 +29,19 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Post $post)
     {
         $validated = $request->validate([
-            'user_id' => 'required',
-            'post_id' => 'required',
-            'content' => 'required',
+        
+            'content' => 'required|string|max:1000',    
         ]);
-        $comment = new Comment();
-        $comment->content = $validated['content'];
-        $comment->user_id = Auth::id();
-        $comment->save();
 
-        return redirect()->route('posts.index')->with('success', 'commentaire ajouté');
+        $validated['user_id'] = Auth::user()->id;
+        $validated['post_id'] = $post->id;
+
+        Comment::create($validated);
+
+        return redirect()->route('posts.show', $post->id)->with('success', 'Comment added successfully.');
     }
 
     /**

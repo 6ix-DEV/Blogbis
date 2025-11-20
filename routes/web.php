@@ -15,24 +15,25 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/index', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
-Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
-
-    Route::get('/index', [PostController::class, 'index'])->name('posts.index');
-    Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
-    Route::get('/posts/edit', [PostController::class, 'edit'])->name('posts.edit');
     
-    Route::get('/comments/index', [CommentController::class, 'index'])->name('comments.index');
-    Route::post('/comments/{comment}',[CommentController::class, 'store'])->name('commments.store'); 
+    
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::middleware('auth')->group(function () {
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 
     
-    
+    Route::get('/posts/edit', [PostController::class, 'edit'])->name('posts.edit');
+
+    Route::get('/comments/index', [CommentController::class, 'index'])->name('comments.index');
+    //Route d'enregistrement d'un commentaire liée à un post (/{post} est l'id du post(clé primaire))
+    Route::post('/comments/{post}',[CommentController::class, 'store'])->name('comments.store'); 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -42,7 +43,7 @@ Route::get('/dashboard', function () {
     Route::patch('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
     Route::delete('/comments/{comment}', [CommentController::class, 'edit'])->name('comments.edit');
     Route::get('/comments/{comment}',[CommentController::class, 'create'])->name('comments.create');
-       
+
 
 });
 
